@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::before,
+*::after {
+  font-family: "Space Grotesk", serif;
+}
+
+/* loading styles */
+.loader {
+  border: 5px solid #fff;
+  border-bottom-color: #3875c5;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes bblFadInOut {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 2.5em 0 -1.3em;
+  }
+  40% {
+    box-shadow: 0 2.5em 0 0;
+  }
+}
+
+/* scrollbar style */
+.scrollbar::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+.scrollbar::-webkit-scrollbar-track {
+  border-radius: 100vh;
+  background: #f3f4f6;
+}
+.scrollbar::-webkit-scrollbar-thumb {
+  background: #6b7280;
+  border-radius: 100vh;
+  border: 3px solid #f3f4f6;
+}
+.scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #0e2d65;
+}
+
+/* shimmer style */
+.shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 400px 100%;
+  animation: shimmer 1.2s infinite;
+}
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: 200px 0;
+  }
+}
+
+@layer components {
+  .popover {
+    @apply absolute py-2 border border-gray-600 rounded-lg shadow-lg left-0 w-full bg-dark text-light z-100;
+  }
+  .dropdown {
+    @apply relative flex items-center gap-2 z-10 p-2 text-sm text-light bg-dark font-semibold rounded-s-lg cursor-pointer sm:px-4 sm:gap-8;
+  }
+  .pagination-number {
+    @apply size-10 sm:size-12 flex items-center justify-center text-center transition-all border rounded-lg shadow-sm border-gray-500 text-dark;
+  }
+  .pagination-button {
+    @apply size-10 sm:size-12 flex items-center justify-center border transition-all duration-300 rounded-lg bg-light;
+  }
+  .btn-cross-border {
+    @apply absolute duration-300 right-4 top-4 flex justify-center items-center rounded-full border-red-500 border-2 size-8 hover:bg-red-500;
+  }
+  .input-form {
+    @apply bg-gray-600 border border-gray-500 text-light rounded-lg outline-none block w-full p-2.5 focus:ring-2 focus:ring-primary focus:border-primary placeholder:text-light/30;
+  }
+  .input-search {
+    @apply block p-2.5 w-full z-20 text-sm rounded-e-lg border-s-2 border duration-300 outline-none focus:ring-primary bg-dark border-s-dark border-gray-600 placeholder-gray-400 text-light focus:border-primary focus:ring-2;
+  }
+  .btn-search {
+    @apply absolute top-0 duration-300 end-0 p-2.5 text-sm font-medium h-full text-light rounded-e-lg border border-primary/90 outline-none focus:ring-2 focus:ring-primary/50 bg-primary hover:bg-primary/80;
+  }
+  .file-label {
+    @apply block px-4 py-2 mr-4 text-sm font-semibold border-0 cursor-pointer rounded-s-lg whitespace-nowrap bg-primary text-light hover:bg-primary/80;
+  }
+}
