@@ -24,12 +24,6 @@ This application is a Member Management System built using **React TypeScript** 
 - **Dockerized Frontend and Backend**: Both the frontend and backend are containerized for seamless deployment.
 - **Docker Compose**: A `docker-compose.yml` file is provided to orchestrate multi-container deployment.
 
-### CI/CD Pipeline
-
-- **Continuous Integration**: Automated builds and tests using tools like GitHub Actions or Jenkins.
-- **Continuous Deployment**: Docker containers are built and deployed to a specified environment (e.g., staging or production) using a CI/CD pipeline.
-- **Environment Variables**: Managed through `.env` files for secure and flexible configuration.
-
 ## Technology Stack
 
 ### Frontend
