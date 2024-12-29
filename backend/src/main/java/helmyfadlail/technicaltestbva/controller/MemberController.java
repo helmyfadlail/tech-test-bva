@@ -27,7 +27,7 @@ import helmyfadlail.technicaltestbva.entity.User;
 import helmyfadlail.technicaltestbva.service.MemberService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "*")
 public class MemberController {
 
     @Autowired

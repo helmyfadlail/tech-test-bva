@@ -7,7 +7,7 @@ interface AxiosProps {
   options?: AxiosRequestConfig;
 }
 
-export const baseUrlApi = "http://localhost:8080/api";
+export const baseUrlApi = "/api/api";
 
 const axiosInstance = axios.create({ baseURL: baseUrlApi });
 
@@ -16,6 +16,7 @@ export const requestApi = async ({ path, method, body, options = {} }: AxiosProp
     url: path,
     method,
     data: body,
+    withCredentials: true,
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",

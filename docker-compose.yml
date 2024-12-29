@@ -1,0 +1,60 @@
+version: "3.8"
+services:
+  server:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: server
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-db:3306/technical_test_bva
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=rahasia
+    depends_on:
+      - mysql-db
+    networks:
+      - app-network
+    restart: always
+
+  client:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: client
+    depends_on:
+      - server
+    networks:
+      - app-network
+    restart: always
+
+  mysql-db:
+    image: mysql:8.0
+    container_name: mysql-db
+    environment:
+      - MYSQL_ROOT_PASSWORD=rahasia
+      - MYSQL_DATABASE=technical_test_bva
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - app-network
+
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nginx
+    hostname: nginx
+    ports:
+      - "5500:80"
+    depends_on:
+      - client
+      - server
+    networks:
+      - app-network
+
+networks:
+  app-network:
+
+volumes:
+  mysql-data:
