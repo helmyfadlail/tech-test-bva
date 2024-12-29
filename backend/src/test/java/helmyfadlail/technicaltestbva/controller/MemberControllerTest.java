@@ -8,12 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
-import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.test.web.servlet.MockMvc;
+
 import helmyfadlail.technicaltestbva.entity.Member;
 import helmyfadlail.technicaltestbva.entity.User;
 import helmyfadlail.technicaltestbva.dto.MemberResponse;
-import helmyfadlail.technicaltestbva.dto.CreateMemberRequest;
 import helmyfadlail.technicaltestbva.dto.WebResponse;
 import helmyfadlail.technicaltestbva.repository.MemberRepository;
 import helmyfadlail.technicaltestbva.repository.UserRepository;
@@ -53,61 +52,6 @@ public class MemberControllerTest {
                 user.setTokenExpiredAt(System.currentTimeMillis() + 1000000000);
                 userRepository.save(user);
         }
-
-        // @Test
-        // void createMemberBadRequest() throws Exception {
-        // MockMultipartFile imageFile = new MockMultipartFile(
-        // "pictureUrl",
-        // "test-image.jpg",
-        // "image/jpeg",
-        // "dummy-image-content".getBytes());
-
-        // mockMvc.perform(
-        // multipart("/api/members")
-        // .file(imageFile)
-        // .header("X-API-TOKEN", "test_token")
-        // .contentType(MediaType.MULTIPART_FORM_DATA))
-        // .andExpectAll(
-        // status().isBadRequest()) // Expect a 400 Bad Request response
-        // .andDo(result -> {
-        // WebResponse<String> response = objectMapper.readValue(
-        // result.getResponse().getContentAsString(),
-        // new TypeReference<WebResponse<String>>() {
-        // });
-        // assertNotNull(response.getErrors());
-        // });
-        // }
-
-        // @Test
-        // void createMemberSuccess() throws Exception {
-        // CreateMemberRequest request = new CreateMemberRequest();
-        // request.setName("Helmy Fadlail");
-        // request.setPosition("Developer");
-        // request.setSuperior("Albab");
-
-        // mockMvc.perform(
-        // post("/api/members")
-        // .accept(MediaType.APPLICATION_JSON)
-        // .contentType(MediaType.APPLICATION_JSON)
-        // .content(objectMapper.writeValueAsString(request))
-        // .header("X-API-TOKEN", "test_token"))
-        // .andExpectAll(
-        // status().isOk())
-        // .andDo(result -> {
-        // WebResponse<MemberResponse> response = objectMapper
-        // .readValue(result.getResponse().getContentAsString(),
-        // new TypeReference<>() {
-        // });
-        // assertNull(response.getErrors());
-        // assertEquals("Helmy Fadlail", response.getData().getName());
-        // assertEquals("Developer", response.getData().getPosition());
-        // assertEquals("Albab", response.getData().getSuperior());
-        // assertEquals("http://www.imagekit.org/helmy-fadlail.png",
-        // response.getData().getPictureUrl());
-
-        // assertTrue(memberRepository.existsById(response.getData().getId()));
-        // });
-        // }
 
         @Test
         void getMemberNotFound() throws Exception {
