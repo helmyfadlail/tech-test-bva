@@ -32,7 +32,7 @@ export const UpdateModal = ({ id }: { id: string }) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const body = { id, name: formData.name, position: formData.position, superior: formData.superior, pictureUrl: pictureUrl.file };
-    execute(body, "Member has been created successfully");
+    execute(body, "Member has been updated successfully");
   };
 
   React.useEffect(() => {
@@ -83,7 +83,7 @@ export const UpdateModal = ({ id }: { id: string }) => {
               Choose file
             </label>
             <label className="text-sm text-light whitespace-nowrap">{!pictureUrl.name ? "Please select a file" : pictureUrl.name}</label>
-            <small className="absolute top-0 right-0 flex items-center w-24 h-full px-2 bg-gray-600 text-gray whitespace-nowrap">Max. (2mb)</small>
+            <small className="absolute top-0 right-0 flex items-center w-32 h-full px-2 bg-gray-600 text-gray whitespace-nowrap">Max. 2mb (1:1 ratio)</small>
           </div>
           <div className="w-full mb-6">{pictureUrl.preview && <Img src={pictureUrl.preview} alt="preview image" className="mx-auto rounded-lg aspect-square w-60" height={240} width={240} />}</div>
           <Button type="submit" className="bg-cyan-500 hover:bg-cyan-600 px-4 sm:px-8 py-1 sm:py-2.5">

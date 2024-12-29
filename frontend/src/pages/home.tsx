@@ -1,5 +1,5 @@
 import * as React from "react";
-import { CreateModal, DeleteModal, UpdateModal } from "./members";
+import { CreateModal, DeleteModal, DetailModal, UpdateModal } from "./members";
 import { Button, Dropdown, Img, Pagination } from "../components";
 import { useGetApi, usePostApi } from "../hooks";
 
@@ -37,7 +37,6 @@ export const HomePage = () => {
     e.preventDefault();
     execute({}, "Logout success");
     cookies.remove("X-API-TOKEN");
-    window.location.href = "/login";
   };
 
   return (
@@ -102,6 +101,7 @@ export const HomePage = () => {
                   <td className="px-4 py-2 border-b">{member.superior}</td>
                   <td className="px-4 py-2 border-b">
                     <UpdateModal id={member.id} />
+                    <DetailModal id={member.id} />
                     <DeleteModal id={member.id} name={member.name} />
                   </td>
                 </tr>

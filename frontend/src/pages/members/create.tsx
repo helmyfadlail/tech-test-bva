@@ -59,7 +59,7 @@ export const CreateModal = ({ isVisible, onClose }: { isVisible: boolean; onClos
             Choose file
           </label>
           <label className="text-sm text-light whitespace-nowrap">{!pictureUrl.file ? "Please select a file" : pictureUrl.name}</label>
-          <small className="absolute top-0 right-0 flex items-center w-24 h-full px-2 bg-gray-600 text-gray whitespace-nowrap">Max. (2mb)</small>
+          <small className="absolute top-0 right-0 flex items-center w-32 h-full px-2 bg-gray-600 text-gray whitespace-nowrap">Max. 2mb (1:1 ratio)</small>
         </div>
         <div className="w-full mb-6">{pictureUrl.file && <Img src={pictureUrl.preview} alt="preview image" className="mx-auto rounded-lg aspect-square w-60" height={240} width={240} />}</div>
         <Button type="submit" className="bg-green-500 hover:bg-green-600 px-4 sm:px-8 py-1 sm:py-2.5">

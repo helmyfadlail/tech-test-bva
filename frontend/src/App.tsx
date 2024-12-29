@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 
-import { HomePage, LoginPage, RegisterPage } from "./pages";
+import { HomePage, LoginPage, NotFound, RegisterPage } from "./pages";
 import { Toaster } from "react-hot-toast";
 import ProtectedRoute from "./routes/protected-route";
 
@@ -27,6 +27,7 @@ const App = () => {
         <Route element={<ProtectedRoute />}>
           <Route index path="/" element={<HomePage />} />
         </Route>
+        <Route index path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );

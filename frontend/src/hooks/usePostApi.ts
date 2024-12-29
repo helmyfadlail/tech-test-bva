@@ -27,7 +27,9 @@ export const usePostApi = <T>(method: "GET" | "POST" | "PATCH" | "DELETE", path:
     })
       .then(() => {
         toast.success(message);
-        window.location.reload();
+        setTimeout(() => {
+          window.location.reload();
+        }, 2000);
       })
       .catch((error) => {
         toast.error(error.response.data.errors || "There was an error");
