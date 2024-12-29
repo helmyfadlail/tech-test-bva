@@ -51,12 +51,12 @@ jobs:
       - name: Install backend dependencies
         run: |
           cd backend
-          ./mvnw clean install
+          ./mvn clean install
 
       - name: Start backend tests
         run: |
           cd backend
-          ./mvnw test
+          ./mvn test
 
       - name: Build Docker images
         run: |
